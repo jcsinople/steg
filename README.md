@@ -15,7 +15,7 @@ To run the application, you'll first need to have Rust installed on your machine
 Once you have Rust installed, you can clone the repository and navigate to the directory:
 
 ```bash
-git clone https://github.com/username/steg.git
+git clone https://github.com/jcsinople/steg.git
 cd steg
 ```
 
