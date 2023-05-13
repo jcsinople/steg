@@ -99,10 +99,20 @@ fn main() -> Result<(), Box<dyn Error>> {
             let cipher = Aes256Cbc::new_var(&key, SALT).unwrap();
 
             // Decode the hidden message from hex to bytes
-            let ciphertext = decode(&hidden_message_without_nulls).unwrap();
+            let ciphertext = match decode(&hidden_message_without_nulls){
+                Ok(ct) => ct,
+                Err(_) => {
+                    return Err(From::from("The provided password is incorrect."));
+                }
+            };
 
             // Decrypt the hidden message
-            let decrypted_ciphertext = cipher.decrypt_vec(&ciphertext).unwrap();
+            let decrypted_ciphertext = match cipher.decrypt_vec(&ciphertext){
+                Ok(dc) => dc,
+                Err(_) => {
+                    return Err(From::from("The provided password is incorrect."));
+                }
+            };
 
             // Print the hidden message
             println!("Hidden message: {}", String::from_utf8(decrypted_ciphertext).unwrap());
