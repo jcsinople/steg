@@ -46,4 +46,8 @@ cargo run --release -- extract --dir /path/to/files --num_files 10 --bytes_per_f
 ```
 
 You'll be prompted to enter a password. You'll need to enter the same password that was used to hide the message.
-License
+
+## License
+
+This program is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+
