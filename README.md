@@ -17,3 +17,33 @@ Once you have Rust installed, you can clone the repository and navigate to the d
 ```bash
 git clone https://github.com/username/steg.git
 cd steg
+```
+
+Then, you can build and run the application using Cargo (Rust's package manager):
+
+```bash
+cargo build --release
+cargo run --release -- [COMMAND] [OPTIONS]
+```
+
+Replace [COMMAND] with hide to hide a message, or extract to extract a message. Replace [OPTIONS] with the appropriate options for the command you're running.
+
+## Hiding a message
+To hide a message, you'll need to provide the directory of files, the message to hide, and optionally, the number of bytes to hide per file:
+
+```bash
+cargo run --release -- hide --dir /path/to/files --message "Secret message" --bytes_per_file 1
+```
+
+You'll be prompted to enter a password. This password will be used to encrypt the message.
+
+## Extracting a message
+
+To extract a message, you'll need to provide the directory of files, and optionally, the number of files used to hide the information and the number of hidden bytes per file:
+
+```bash
+cargo run --release -- extract --dir /path/to/files --num_files 10 --bytes_per_file 1
+```
+
+You'll be prompted to enter a password. You'll need to enter the same password that was used to hide the message.
+License
